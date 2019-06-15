@@ -49,3 +49,6 @@ Thumbs.db
 .scannerwork/
 sonar-project.properties
 
+#firebase-keys
+src/environments
+
