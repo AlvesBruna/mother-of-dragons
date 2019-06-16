@@ -11,11 +11,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DragonsComponent } from './dragons/dragons.component';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ListComponent } from './dragons/list/list.component';
+import { CreateComponent } from './dragons/create/create.component';
 import { OrderByPipe } from './pipes/order-by/order-by.pipe';
-import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
-	declarations: [AppComponent, LoginComponent, DragonsComponent, ListComponent, OrderByPipe, NavbarComponent],
+	declarations: [AppComponent, LoginComponent, DragonsComponent, ListComponent, CreateComponent, OrderByPipe],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
