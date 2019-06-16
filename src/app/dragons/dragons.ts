@@ -1,5 +1,5 @@
 export interface IDragon {
-	id: string;
+	id?: string;
 	createdAt: string;
 	name: string;
 	type: string;

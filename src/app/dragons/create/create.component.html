@@ -1,0 +1,14 @@
+<div class="container">
+  <form [formGroup]="dragonForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" formControlName="name" placeholder="Name">
+    </div>
+    <div class="form-group">
+      <label for="type">Type</label>
+      <input type="text" class="form-control" id="type" formControlName="type" placeholder="Type">
+    </div>
+    <p *ngIf="dragonForm.errors !== null" class="text-danger" id="error-message">{{dragonForm.errors.message}}</p>
+    <button type="submit" class="btn btn-primary" (click)="createDragon()">Submit</button>
+  </form>
+</div>

@@ -1,2 +1,5 @@
-<button class="btn btn-outline-primary" (click)="logout()">logout</button>
-<app-list></app-list>
+
+<div class="d-flex flex-column flex-sm-row justify-content-sm-center">
+   <button class="btn btn-outline-primary m-4 p-sm-5" [routerLink]="['/create']">create</button>
+   <button class="btn btn-outline-primary m-4 p-sm-5" [routerLink]="['/list']">list</button>
+</div>

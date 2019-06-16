@@ -1,11 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DragonsComponent } from './dragons.component';
-import { ListComponent } from './list/list.component';
-import { OrderByPipe } from '../pipes/order-by/order-by.pipe';
 import { Component } from '@angular/core';
-import { AuthService } from '../services/auth/auth.service';
-import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 @Component({
 	selector: 'app-list',
@@ -13,13 +10,6 @@ import { Router } from '@angular/router';
 })
 class MockDragonListComponent {}
 
-class AuthServiceMock {
-	logout = jest.fn().mockReturnValue(Promise.resolve());
-}
-
-class RouterMock {
-	navigate = jest.fn();
-}
 describe('DragonsComponent', () => {
 	let component: DragonsComponent;
 	let fixture: ComponentFixture<DragonsComponent>;
@@ -27,11 +17,8 @@ describe('DragonsComponent', () => {
 	beforeEach(
 		async(() => {
 			TestBed.configureTestingModule({
-				declarations: [DragonsComponent, MockDragonListComponent],
-				providers: [
-					{ provide: AuthService, useClass: AuthServiceMock },
-					{ provide: Router, useClass: RouterMock }
-				]
+				imports: [RouterTestingModule],
+				declarations: [DragonsComponent, MockDragonListComponent]
 			}).compileComponents();
 		})
 	);
