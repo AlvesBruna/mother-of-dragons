@@ -1,2 +1,5 @@
 <div *ngIf="errorToast" class="toast alert alert-danger" role="alert">{{errorToast}}</div>
-<router-outlet></router-outlet>
+<app-navbar></app-navbar>
+<div class="wrapper">
+   <router-outlet></router-outlet>
+</div>

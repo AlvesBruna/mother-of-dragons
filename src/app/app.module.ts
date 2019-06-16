@@ -12,9 +12,10 @@ import { DragonsComponent } from './dragons/dragons.component';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ListComponent } from './dragons/list/list.component';
 import { OrderByPipe } from './pipes/order-by/order-by.pipe';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
-	declarations: [AppComponent, LoginComponent, DragonsComponent, ListComponent, OrderByPipe],
+	declarations: [AppComponent, LoginComponent, DragonsComponent, ListComponent, OrderByPipe, NavbarComponent],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
