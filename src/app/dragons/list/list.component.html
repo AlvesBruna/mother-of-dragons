@@ -1,0 +1,23 @@
+<div class="m-sm-5">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Created at</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let dragon of dragons | orderBy: 'name'">
+      <tr>
+        <td class="dragon-name">
+          <p>{{dragon.name}}</p>
+          <small class="text-muted">{{dragon.type}}</small>
+        </td>
+        <td class="dragon-creation">{{dragon.createdAt | date}}</td>
+        <td class="delete-dragon cursor-pointer" (click)="deleteDragon(dragon.id)">
+          delete
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
