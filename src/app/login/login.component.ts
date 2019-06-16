@@ -4,63 +4,59 @@ import { AuthService } from '../services/auth/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+	selector: 'app-login',
+	templateUrl: './login.component.html',
+	styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginForm = new FormGroup({
-    email: new FormControl('', [
-      Validators.required, 
-      Validators.email
-    ]),
-    password: new FormControl('', [
-      Validators.required,
-    ]),
-  });
+	loginForm = new FormGroup({
+		email: new FormControl('', [Validators.required, Validators.email]),
+		password: new FormControl('', [Validators.required])
+	});
 
-  constructor(public auth: AuthService, public router: Router) { }
+	constructor(public auth: AuthService, public router: Router) {}
 
-  error = error => ({
-    required: 'You missed a spot! Don\'t forget to add your email and password.',
-    email: 'Hmm... that doesn\'t look like an email address.'
-  }[error])
+	error = error =>
+		({
+			required: "You missed a spot! Don't forget to add your email and password.",
+			email: "Hmm... that doesn't look like an email address."
+		}[error]);
 
-  setFormError = (error) =>{
-    this.loginForm.setErrors({
-      message: this.error(error)
-    })
-  }
+	setFormError = error => {
+		this.loginForm.setErrors({
+			message: this.error(error)
+		});
+	};
 
-  ngOnInit = () => {
-    this.loginForm.reset();
-  }
+	ngOnInit() {
+		this.loginForm.reset();
+	}
 
-  isLoginIvalid = () => {
-    const emailError = this.loginForm.get('email').errors;
-    const passwordError = this.loginForm.get('password').errors;
+	isLoginIvalid() {
+		const emailError = this.loginForm.get('email').errors;
+		const passwordError = this.loginForm.get('password').errors;
 
-    if (!emailError && !passwordError) return false;
+		if (!emailError && !passwordError) return false;
 
-    const errors = Object.keys({...emailError, ...passwordError});
-    errors.forEach(this.setFormError)
+		const errors = Object.keys({ ...emailError, ...passwordError });
+		errors.forEach(this.setFormError);
 
-    return true;
-  }
+		return true;
+	}
 
-  login = () => {
-    if(this.isLoginIvalid()) return;
+	login() {
+		if (this.isLoginIvalid()) return;
 
-    const user = {
-      email: this.loginForm.get('email').value,
-      password: this.loginForm.get('password').value,
-    }
+		const user = {
+			email: this.loginForm.get('email').value,
+			password: this.loginForm.get('password').value
+		};
 
-    this.auth.login(user)
-      .then(() => {
-        this.router.navigate(['/'])
-      })
-      .catch(err => this.loginForm.setErrors({message: err.message}));
-  }
-
+		this.auth
+			.login(user)
+			.then(() => {
+				this.router.navigate(['/']);
+			})
+			.catch(err => this.loginForm.setErrors({ message: err.message }));
+	}
 }

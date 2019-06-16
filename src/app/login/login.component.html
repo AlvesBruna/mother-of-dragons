@@ -1,12 +1,14 @@
-<form [formGroup]="loginForm">
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="text" class="form-control" id="email" formControlName="email" placeholder="Email" #email>
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password">
-  </div>
-  <p *ngIf="loginForm.errors !== null" class="text-danger" id="error-message">{{loginForm.errors.message}}</p>
-  <button type="submit" class="btn btn-primary" (click)="login()">Submit</button>
-</form>
+<div class="container">
+  <form [formGroup]="loginForm">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="email" formControlName="email" placeholder="Email" #email>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password">
+    </div>
+    <p *ngIf="loginForm.errors !== null" class="text-danger" id="error-message">{{loginForm.errors.message}}</p>
+    <button type="submit" class="btn btn-primary" (click)="login()">Submit</button>
+  </form>
+</div>
