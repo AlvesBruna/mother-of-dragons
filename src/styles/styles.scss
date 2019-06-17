@@ -1,5 +1,10 @@
-@import '~bootstrap/dist/css/bootstrap.min.css';
+@import './variables';
+@import 'node_modules/bootstrap/scss/bootstrap';
 
+html,
+body {
+	background-color: $off-white;
+}
 .cursor-pointer {
 	cursor: pointer;
 }
