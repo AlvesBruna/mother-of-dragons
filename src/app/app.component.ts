@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ErrorToastService } from './services/error-toast/error-toast.service';
-
+import 'bootstrap';
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',

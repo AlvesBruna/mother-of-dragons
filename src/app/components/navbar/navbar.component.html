@@ -1,4 +1,14 @@
-<nav class="navbar navbar-light fixed-top bg-light justify-content-space-between">
-    <a class="navbar-brand" [routerLink]="['/']">Home</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Mother of dragons</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav" *ngFor="let item of navlinks">
+            <li class="nav-item active">
+                <a class="nav-link text-secondary" [routerLink]="[item.route]">{{item.name}}</a>
+            </li>
+        </ul>
+    </div>
     <button *ngIf="showLogoutBtn" id="logout-btn" class="btn btn-outline-primary" (click)="logout()">logout</button>
 </nav>
