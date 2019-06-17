@@ -1,4 +1,4 @@
 <nav class="navbar navbar-light fixed-top bg-light justify-content-space-between">
     <a class="navbar-brand" [routerLink]="['/']">Home</a>
-    <button id="logout-btn" class="btn btn-outline-primary" (click)="logout()">logout</button>
+    <button *ngIf="showLogoutBtn" id="logout-btn" class="btn btn-outline-primary" (click)="logout()">logout</button>
 </nav>
