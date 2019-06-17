@@ -5,11 +5,11 @@ import { OrderByPipe } from 'src/app/pipes/order-by/order-by.pipe';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { By } from '@angular/platform-browser';
 import { IDragon } from '../dragons';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ListComponent', () => {
 	let component: ListComponent;
 	let fixture: ComponentFixture<ListComponent>;
-
 	const dragonsMock: IDragon[] = [
 		{
 			id: '1',
@@ -34,7 +34,7 @@ describe('ListComponent', () => {
 	beforeEach(
 		async(() => {
 			TestBed.configureTestingModule({
-				imports: [HttpClientTestingModule],
+				imports: [HttpClientTestingModule, RouterTestingModule],
 				declarations: [ListComponent, OrderByPipe]
 			}).compileComponents();
 		})

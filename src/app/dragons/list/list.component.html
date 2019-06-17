@@ -14,7 +14,7 @@
           <small class="text-muted">{{dragon.type}}</small>
         </td>
         <td class="dragon-creation">{{dragon.createdAt | date}}</td>
-        <td class="delete-dragon" (click)="deleteDragon(dragon.id)">
+        <td class="delete-dragon" (click)="deleteDragon(dragon.id, $event)">
           delete
         </td>
       </tr>
