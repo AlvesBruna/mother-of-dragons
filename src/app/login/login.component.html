@@ -1,4 +1,5 @@
-<div class="container">
+<div class="container login-page">
+  <div class="title text-primary">{{context}}</div>
   <form [formGroup]="loginForm">
     <div class="form-group">
       <label for="email">Email</label>
@@ -9,6 +10,8 @@
       <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password">
     </div>
     <p *ngIf="loginForm.errors !== null" class="text-danger" id="error-message">{{loginForm.errors.message}}</p>
-    <button type="submit" class="btn btn-primary" (click)="login()">Submit</button>
+    <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
+    <a *ngIf="context !== 'Login'" class="text-primary link" (click)="changeContext('Login')"> Login</a>
+    <a *ngIf="context === 'Login'" class="text-primary link"  (click)="changeContext('Sign up')"> Sign up</a>
   </form>
 </div>

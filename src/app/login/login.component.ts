@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
 		password: new FormControl('', [Validators.required])
 	});
 
+	context = 'Login';
+
 	constructor(public auth: AuthService, public router: Router) {}
 
 	error = error =>
@@ -32,6 +34,10 @@ export class LoginComponent implements OnInit {
 		this.loginForm.reset();
 	}
 
+	changeContext(context) {
+		this.context = context;
+	}
+
 	isLoginIvalid() {
 		const emailError = this.loginForm.get('email').errors;
 		const passwordError = this.loginForm.get('password').errors;
@@ -44,7 +50,25 @@ export class LoginComponent implements OnInit {
 		return true;
 	}
 
-	login() {
+	login(user) {
+		this.auth
+			.login(user)
+			.then(() => {
+				this.router.navigate(['/']);
+			})
+			.catch(err => this.loginForm.setErrors({ message: err.message }));
+	}
+
+	signup(user) {
+		this.auth
+			.signup(user)
+			.then(() => {
+				this.router.navigate(['/']);
+			})
+			.catch(err => this.loginForm.setErrors({ message: err.message }));
+	}
+
+	submit() {
 		if (this.isLoginIvalid()) return;
 
 		const user = {
@@ -52,11 +76,7 @@ export class LoginComponent implements OnInit {
 			password: this.loginForm.get('password').value
 		};
 
-		this.auth
-			.login(user)
-			.then(() => {
-				this.router.navigate(['/']);
-			})
-			.catch(err => this.loginForm.setErrors({ message: err.message }));
+		if (this.context === 'Login') return this.login(user);
+		return this.signup(user);
 	}
 }

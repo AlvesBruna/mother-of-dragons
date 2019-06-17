@@ -19,8 +19,12 @@ export class AuthService {
 			.catch(this.emitError);
 	}
 
+	signup({ email, password }) {
+		return this.afAuth.auth.createUserWithEmailAndPassword(email, password);
+	}
+
 	login({ email, password }) {
-		return this.afAuth.auth.signInWithEmailAndPassword(email, password).catch(this.emitError);
+		return this.afAuth.auth.signInWithEmailAndPassword(email, password);
 	}
 
 	logout() {

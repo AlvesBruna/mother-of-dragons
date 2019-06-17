@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 	showLogoutBtn = false;
 	constructor(public auth: AuthService, public router: Router) {}
-	showLogoutBtn = false;
 	navlinks = [
 		{
 			name: 'Home',
@@ -27,7 +26,7 @@ export class NavbarComponent implements OnInit {
 	];
 
 	ngOnInit() {
-		this.auth.isAuthenticated().then(user => (this.showLogoutBtn = !!user));
+		this.auth.$user().subscribe(user => (this.showLogoutBtn = !!user));
 	}
 
 	logout() {
