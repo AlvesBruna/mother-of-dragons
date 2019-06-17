@@ -8,6 +8,10 @@ import { ErrorToastService } from '../error-toast/error-toast.service';
 export class AuthService {
 	constructor(public afAuth: AngularFireAuth, public errorToast: ErrorToastService) {}
 
+	$user() {
+		return this.afAuth.user;
+	}
+
 	isAuthenticated() {
 		return this.afAuth.user
 			.pipe(first())
