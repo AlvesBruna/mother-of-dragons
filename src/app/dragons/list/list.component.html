@@ -1,6 +1,6 @@
-<div class="m-sm-5">
-  <table class="table">
-    <thead class="thead-dark">
+<div class="dragon-list m-sm-5">
+  <table *ngIf="dragons.length; else noDragons" class="table">
+    <thead class="bg-secondary">
       <tr>
         <th scope="col">Name</th>
         <th scope="col">Created at</th>
@@ -20,4 +20,10 @@
       </tr>
     </tbody>
   </table>
+  <ng-template #noDragons>
+    <div class="no-dragons-available">
+      <p>Sorry, there are no dragons available :(</p>
+      <button class="btn btn-outline-secondary" [routerLink]="['/create']">Create a new one</button>
+    </div>
+  </ng-template>
 </div>

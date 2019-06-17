@@ -1,7 +1,18 @@
-td {
-    vertical-align: middle;
+.dragon-list {
+	td {
+		vertical-align: middle;
 
-    p {
-        margin-bottom: 0;
-    }
+		p {
+			margin-bottom: 0;
+		}
+	}
+	.no-dragons-available {
+		display: flex;
+		flex-direction: column;
+		max-width: 500px;
+		padding: 2em;
+		margin: auto;
+		justify-content: center;
+		background-color: white;
+	}
 }
