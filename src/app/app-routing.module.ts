@@ -5,6 +5,7 @@ import { DragonsComponent } from './dragons/dragons.component';
 import { AuthGuard } from './guard/auth.guard';
 import { ListComponent } from './dragons/list/list.component';
 import { CreateComponent } from './dragons/create/create.component';
+import { ViewComponent } from './dragons/view/view.component';
 
 const routes: Routes = [
 	{
@@ -25,6 +26,11 @@ const routes: Routes = [
 	{
 		path: 'create',
 		component: CreateComponent,
+		canActivate: [AuthGuard]
+	},
+	{
+		path: 'detail/:id',
+		component: ViewComponent,
 		canActivate: [AuthGuard]
 	},
 	{

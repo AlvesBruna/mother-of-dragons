@@ -21,6 +21,7 @@ export class ListComponent implements OnInit {
 	};
 
 	deleteDragon = id => {
+		event.stopPropagation();
 		this.dragonService.deleteDragon(id).then(() => this.getDragons());
 	};
 }

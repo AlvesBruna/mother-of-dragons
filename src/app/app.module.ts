@@ -14,9 +14,10 @@ import { ListComponent } from './dragons/list/list.component';
 import { OrderByPipe } from './pipes/order-by/order-by.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CreateComponent } from './dragons/create/create.component';
+import { ViewComponent } from './dragons/view/view.component';
 
 @NgModule({
-	declarations: [AppComponent, LoginComponent, DragonsComponent, ListComponent, OrderByPipe, NavbarComponent, CreateComponent, ],
+	declarations: [AppComponent, LoginComponent, DragonsComponent, ListComponent, OrderByPipe, NavbarComponent, CreateComponent, ViewComponent, ],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
