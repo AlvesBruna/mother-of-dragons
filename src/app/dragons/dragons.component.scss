@@ -1,0 +1,12 @@
+.dragon-page {
+	.btn {
+		width: 25vw;
+		height: 25vw;
+		margin: 2em;
+		max-width: 200px;
+		max-height: 200px;
+		&:hover {
+			color: white;
+		}
+	}
+}
